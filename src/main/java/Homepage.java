@@ -25,6 +25,7 @@ public class Homepage {
     By Login = By.xpath("//*[@class='btn btn-icon-login-register']");
     By Login_Afterinputting = By.xpath("//*[@data-event-label='User login button']");
     By Logut_button = By.xpath("(//i[@class='houzez-icon icon-lock-5 mr-2'])[2]");
+    By Consent = By.xpath("(//*[@class='fc-button-label'])[1]");
 
 
     //Method
@@ -81,6 +82,12 @@ public class Homepage {
     }
     public void Logut(){
         driver.findElement(Logut_button).click();
+    }
+
+    public void Click_consent(){
+        WebElement a =driver.findElement(Consent);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(a).click().perform();
     }
 
 }
