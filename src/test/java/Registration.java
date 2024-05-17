@@ -1,45 +1,28 @@
-import Utility.Generate_randomNum;
-import Utility.Report;
-import Utility.TestDataReader;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter;
-import io.github.bonigarcia.wdm.WebDriverManager;
+
+import Pages.Homepage;
+import Pages.LoggedInUser_Homepage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.io.IOException;
 import java.time.Duration;
-import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 
-public class Registration extends Base {
+public class Registration extends base {
 
 
     @Test(priority = 0)
     public void registration() throws InterruptedException {
+
 
         Homepage homepage = new Homepage(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         driver.get("https://staging-www.daltonsbusiness.com/");
         test.info("navigated to url");
+
 
         WebElement a = null;
         try{
@@ -67,6 +50,8 @@ public class Registration extends Base {
 
         test.info("inputted user details to register");
 
+
+
 //        stepReport("pass","user inputted basic information");
 
         LoggedInUser_Homepage loggedInUser_homepage = new LoggedInUser_Homepage(driver);
@@ -92,6 +77,8 @@ public class Registration extends Base {
 //        stepReport("pass","Asserting inputted basic information");
 
         test.info("Asserted all the inputted details");
+
+
 
         homepage.Logut();
 

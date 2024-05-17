@@ -1,3 +1,5 @@
+package Pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Homepage {
     WebDriver driver=null;
-    Homepage(WebDriver driver){
+    public Homepage(WebDriver driver){
         this.driver =driver;
     }
 
@@ -25,7 +27,7 @@ public class Homepage {
     By Login = By.xpath("//*[@class='btn btn-icon-login-register']");
     By Login_Afterinputting = By.xpath("//*[@data-event-label='User login button']");
     By Logut_button = By.xpath("(//i[@class='houzez-icon icon-lock-5 mr-2'])[2]");
-    By Consent = By.xpath("(//*[@class='fc-button-label'])[1]");
+    public By Consent = By.xpath("(//*[@class='fc-button-label'])[1]");
 
 
     //Method

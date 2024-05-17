@@ -1,9 +1,11 @@
+package Pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoggedInUser_Homepage {
     WebDriver driver =null;
-    LoggedInUser_Homepage(WebDriver driver){
+    public LoggedInUser_Homepage(WebDriver driver){
         this.driver =driver;
     }
 
