@@ -29,8 +29,6 @@ public class Testing_creatingList extends base {
 
         CreateListingPage createListingPage = new CreateListingPage(driver);
         driver.navigate().to("https://staging-www.daltonsbusiness.com/create-listing/");
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
         createListingPage.ListingHeading(Listing_headline);
         createListingPage.Content(Content);
         createListingPage.Status();
