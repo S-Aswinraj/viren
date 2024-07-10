@@ -7,6 +7,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -157,26 +158,24 @@ public class Registration extends base {
     }
 @Test(priority = 2)
     public void createListing() throws InterruptedException {
-        //just to login in
-    Homepage homepage = new Homepage(driver);
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    driver.get("https://staging-www.daltonsbusiness.com/login/?redirect_to=https://staging-www.daltonsbusiness.com/");
-    homepage.Email("abc-27apr_25@test.com");
-    homepage.password(Password);
-    driver.wait();
-    homepage.Click_LoginAfterInputting();
 
-        driver.get("https://staging-www.daltonsbusiness.com/create-listing/");
-        CreateListingPage createListingPage = new CreateListingPage(driver);
-        createListingPage.ListingHeading(Listing_headline);
-        createListingPage.Content(Content);
-        createListingPage.Status();
-        createListingPage.Business_category(Business_category);
-        createListingPage.Asking_price();
-        createListingPage.Price(Price);
-        createListingPage.Currency();
-        createListingPage.property_status();
-        createListingPage.Location(Location);
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    CreateListingPage createListingPage = new CreateListingPage(driver);
+    driver.navigate().to("https://staging-www.daltonsbusiness.com/create-listing/");
+    createListingPage.Close_widget();
+    createListingPage.ListingHeading(Listing_headline);
+    createListingPage.Content(Content);
+
+    createListingPage.Status();
+    createListingPage.Business_category_input(Business_category);
+
+//    wait.until(ExpectedConditions.visibilityOfElementLocated((By) driver.findElement(By.xpath("//*[text()='Cafes']"))));
+    createListingPage.Business_category_select();
+    createListingPage.Location(Location);
+    createListingPage.Asking_price();
+    createListingPage.Price(Price);
+    createListingPage.Currency();
+    createListingPage.property_status();
 
     }
 
